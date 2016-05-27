@@ -6,7 +6,7 @@ trait UserFunctions {
 
   /**
    *
-   * @var Node
+   * @var User
    */
   protected $fUser;
 
