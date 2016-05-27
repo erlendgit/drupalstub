@@ -1,3 +1,17 @@
 <?php
 
-// required .module file
+use Drupal\drupalstub\Stub;
+use Drupal\drupalstub\Functions\Node;
+use Drupal\drupalstub\Functions\User;
+
+function drupalstub_boot() {
+  $modules = module_implements('drupalstub');
+  foreach($modules as $module) {
+    module_invoke($module, 'drupalstub', Stub::f());
+  }
+}
+
+function drupalstub_drupalstub(Stub $stub) {
+  $stub->attach(new Node());
+  $stub->attach(new User());
+}
