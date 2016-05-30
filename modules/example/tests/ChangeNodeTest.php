@@ -5,7 +5,6 @@ namespace Drupal\stub_example\tests;
 use PHPUnit_Framework_TestCase;
 use Drupal\drupalstub\Stub;
 use Drupal\stub_example\ChangeNode;
-use stdClass;
 
 class ChangeNodeTest extends PHPUnit_Framework_TestCase {
 
@@ -24,11 +23,11 @@ class ChangeNodeTest extends PHPUnit_Framework_TestCase {
       ->getMock();
     $functions->method('add_a_numer_to_something_random')->willReturn(0);
     
-    // the test!
-    $functions->expects($this->once())->method('add_a_numer_to_something_random');
-
     Stub::f()->attach($functions);
     $changer = new ChangeNode();
+    
+    // setRandomUid is expected to call add_a_number_to_something_random
+    $functions->expects($this->once())->method('add_a_numer_to_something_random');
     $changer->setRandomUid((object)[]);
   }
 
