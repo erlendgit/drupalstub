@@ -12,7 +12,7 @@ function stub_example_drupalstub(Stub $stub) {
 }
 
 /**
- * Basicly... add numbers
+ * Expose a kind of API by means of a public function
  */
 function add_a_numer_to_something_random($random, $add) {
   return $random + $add;
