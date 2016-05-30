@@ -1,0 +1,19 @@
+<?php
+
+use Drupal\drupalstub\Stub;
+use Drupal\stub_example\ExampleFunctions;
+
+/**
+ * Implement hook_drupalstub()
+ * @param Stub $stub
+ */
+function stub_example_drupalstub(Stub $stub) {
+  $stub->attach(new ExampleFunctions());
+}
+
+/**
+ * Basicly... add numbers
+ */
+function add_a_numer_to_something_random($random, $add) {
+  return $random + $add;
+}
