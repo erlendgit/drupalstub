@@ -37,10 +37,10 @@ class StubTest extends PHPUnit_Framework_TestCase {
     
     $functions->expects($this->exactly(2))->method('foo');
     
-    $this->assertFalse(Stub::f()->isCached('foo'));
+    $this->assertFalse(Stub::f()->isMapped('foo'));
     $this->assertTrue(Stub::f()->foo());
     
-    $this->assertTrue(Stub::f()->isCached('foo'));
+    $this->assertTrue(Stub::f()->isMapped('foo'));
     $this->assertTrue(Stub::f()->foo());
   }
 }

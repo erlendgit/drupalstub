@@ -37,12 +37,12 @@ final class Stub {
     return call_user_func_array([$this->collection[$location], $method_name], $params);
   }
   
-  public function isCached($method_name) {
+  public function isMapped($method_name) {
     return array_key_exists($method_name, $this->map);
   }
 
   private function locateMethod($method_name) {
-    if (!$this->isCached($method_name)) {
+    if (!$this->isMapped($method_name)) {
       foreach ($this->collection as $class => $obj) {
         if (method_exists($obj, $method_name)) {
           $this->map[$method_name] = $class;
